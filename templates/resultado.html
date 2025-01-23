@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado do IMC</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Resultado do IMC</h1>
+        <p><strong>IMC:</strong> {{ imc|round(2) }}</p>
+        <p><strong>Classificação:</strong> {{ classificacao }}</p>
+        <br>
+        <a href="/" class="btn">Calcular novamente</a>
+    </div>
+</body>
+</html>
