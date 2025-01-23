@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultado do IMC</title>
+    <title>Salvar Dados</title> <!-- O título agora é fixo -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Resultado do IMC</h1>
-        <p><strong>IMC:</strong> {{ imc|round(2) }}</p>
-        <p><strong>Classificação:</strong> {{ classificacao }}</p>
+        <h1>Salvar Dados</h1>
 
-        <!-- Botão para salvar os dados -->
-        <form action="/salvar" method="get">
+        <!-- Formulário para salvar os dados -->
+        <form action="/salvar" method="post">
+            <label for="nome">Email:</label>
+            <input type="text" id="nome" name="nome" required>
+
             <input type="hidden" name="imc" value="{{ imc }}">
             <input type="hidden" name="classificacao" value="{{ classificacao }}">
 
