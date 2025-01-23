@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import os
 
 app = Flask(__name__)
 
@@ -11,7 +12,7 @@ def calcular():
     try:
         peso = float(request.form['peso'])
         altura = float(request.form['altura'])
-        if altura == 0  :
+        if altura == 0:
             return "Erro: Altura não pode ser zero!", 400
         
         # Cálculo do IMC
@@ -37,4 +38,6 @@ def calcular():
         return f"Erro: {e}", 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Usando a variável de ambiente PORT fornecida pelo Render ou 5000 por padrão
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
